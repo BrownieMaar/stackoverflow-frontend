@@ -1,11 +1,18 @@
 import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import HomePage from './Pages/HomePage'
+import QuestionPage from './Pages/QuestionPage'
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Stackoverflow</h1>
-      <i>The better one</i>
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='question/:id' element={<QuestionPage />} />
+        </Routes>
+      </Router>
     </div>
   )
 }
