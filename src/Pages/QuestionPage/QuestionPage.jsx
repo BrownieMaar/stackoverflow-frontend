@@ -21,7 +21,7 @@ export default function QuestionPage() {
     return questionDTO ?
      <div className="questionpage-cards">
      <QuestionCardDetailed questionPageDTO={questionDTO} />
-     {questionDTO.answers.map(answer => <AnswerCard answerDTO={answer} /> )}
+     {questionDTO.answers.map(answer => <AnswerCard key={answer.id} answerDTO={answer} /> )}
      </div>
      :
      <Loading />

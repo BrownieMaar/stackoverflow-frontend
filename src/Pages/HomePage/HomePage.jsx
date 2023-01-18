@@ -20,7 +20,7 @@ export default function HomePage() {
     return <div className="card-holder">{
         questions ? 
         <>{
-            questions.map(question => <QuestionCard question={question} /> )
+            questions.map(question => <QuestionCard key={question.id} question={question} /> )
         }</>
         :
         <Loading />
