@@ -31,3 +31,16 @@
 .question-infos>p {
     margin: .5rem;
 }
+
+.letter-avatar {
+    font-size: 30px;
+
+    height: 40px;
+    width: 40px;
+
+    background-color: var(--accent-color);
+
+    padding: .5rem;
+    border-radius: 100%;
+    margin-bottom: .5rem;
+}

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import UserAvatar from "../../Components/UserAvatar";
 import "./Question.css"
 
 export default function QuestionCard({ question }) {
@@ -14,7 +15,10 @@ export default function QuestionCard({ question }) {
     }
 
     return <div className="card">
-        <div className="username" onClick={() => navigate("/user/" + question.user.id)}>{question.user.name}</div>
+        <div className="username" onClick={() => navigate("/user/" + question.user.id)}>
+            <UserAvatar username={question.user.name} />
+            {question.user.name}
+        </div>
         <div className="question" onClick={() => navigate("/question/" + question.id)}>
             <h2>{question.title}</h2>
             <div className="question-infos">
