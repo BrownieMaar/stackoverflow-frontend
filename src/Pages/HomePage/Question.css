@@ -1,0 +1,6 @@
+.card {
+    border: 1px solid var(--foreground-color);
+    margin: .5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}

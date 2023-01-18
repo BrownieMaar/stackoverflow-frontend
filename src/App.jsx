@@ -1,9 +1,11 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import HomePage from './Pages/HomePage'
+import HomePage from './Pages/HomePage/HomePage'
 import QuestionPage from './Pages/QuestionPage'
+import { useEffect, useState } from 'react'
 
 function App() {
+  
 
   return (
     <div className="App">
