@@ -7,7 +7,8 @@ export default function SignIn() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const res = await fetch(`/api/user/auth?name=${username}&password=${password}`);
         try {
             const data = await res.json();
@@ -16,20 +17,21 @@ export default function SignIn() {
         } catch (error) {
             alert("Failed!"); // TODO: értelmesen
         }
-          
+
     }
 
     return <>
         <h1>Sign in to<br /><i>Stackoverflow++</i></h1>
         <div className="authcard">
+            <form>
+                <div className="label">Username</div>
+                <div><input type="text" onInput={e => setUsername(e.target.value)} /></div>
 
-            <div className="label">Username</div>
-            <div><input type="text" onInput={e => setUsername(e.target.value)} /></div>
+                <div className="label">Password</div>
+                <div><input type="password" onInput={e => setPassword(e.target.value)} /></div>
 
-            <div className="label">Password</div>
-            <div><input type="password" onInput={e => setPassword(e.target.value)} /></div>
-
-            <button className="authbutton" onClick={handleSubmit}>Sign in</button>
+                <button type="submit" className="authbutton" onClick={handleSubmit}>Sign in</button>
+            </form>
         </div>
     </>
 }
