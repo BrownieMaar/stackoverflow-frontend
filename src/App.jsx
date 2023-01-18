@@ -5,8 +5,13 @@ import QuestionPage from './Pages/QuestionPage/QuestionPage'
 import { useEffect, useState } from 'react'
 import UserPage from './Pages/UserPage/UserPage'
 import Layout from './Pages/Layout'
+import SignIn from './Pages/Auth/SignIn'
 
 function App() {
+
+  useEffect(() => {
+    if (window.currentUser) window.currentUser = null;
+  }, []);
 
 
   return (
@@ -21,6 +26,8 @@ function App() {
             <Route path='user/:id' element={<UserPage />} />
 
           </Route>
+
+          <Route path='/signin' element={<SignIn />} />
 
         </Routes>
       </Router>
