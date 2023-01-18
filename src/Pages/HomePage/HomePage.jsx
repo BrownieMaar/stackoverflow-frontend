@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import QuestionCard from "./QuestionCard";
 import "./HomePage.css"
+import Loading from "../../Components/Loading";
 
 export default function HomePage() {
     const [questions, setQuestions] = useState(null);
@@ -22,8 +23,6 @@ export default function HomePage() {
             questions.map(question => <QuestionCard question={question} /> )
         }</>
         :
-        <div>
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-        </div>
+        <Loading />
     }</div>
 }

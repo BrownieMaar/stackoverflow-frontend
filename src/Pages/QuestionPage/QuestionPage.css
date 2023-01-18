@@ -1,0 +1,32 @@
+.clickable {
+    cursor: pointer;
+}
+
+.detailed>p {
+    text-align: left;
+}
+
+.card.answer {
+    margin-left: 6rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: flex-start;
+}
+.answer.user {
+    font-style: italic;
+
+}
+
+.questionpage-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.answer>p {
+    text-align: left;
+}
+
+.flex-end {
+    align-self: flex-end;
+}
