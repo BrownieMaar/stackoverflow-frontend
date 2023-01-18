@@ -22,6 +22,8 @@ export default function HomePage() {
             questions.map(question => <QuestionCard question={question} /> )
         }</>
         :
-        <>Loading...</>
+        <div>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
     }</div>
 }
