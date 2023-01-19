@@ -4,6 +4,9 @@
     margin: 0;
     border: 0;
     font-size: large;
+
+    background-color: var(--background-accented);
+    border-radius: 5px;
 }
 
 .new-q-form>input {

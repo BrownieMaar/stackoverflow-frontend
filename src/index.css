@@ -1,5 +1,6 @@
 :root {
     --background-color: #494949;
+    --background-accented: #777777;
     --foreground-color: white;
     --accent-color: orange;
     background-color: var(--background-color);
