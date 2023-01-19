@@ -29,6 +29,7 @@ input, textarea {
 
 textarea {
     font-family: unset;
+    resize: none;
 }
 
 button {

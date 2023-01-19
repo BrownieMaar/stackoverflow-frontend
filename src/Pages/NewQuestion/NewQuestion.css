@@ -7,10 +7,6 @@
     padding: .5rem;
 }
 
-.new-q-form>textarea {
-    resize: none;
-}
-
 .new-q-form>label {
     text-align: left;
     width: 100%;
