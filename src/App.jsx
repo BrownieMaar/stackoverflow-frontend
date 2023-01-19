@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import UserPage from './Pages/UserPage/UserPage'
 import Layout from './Pages/Layout'
 import SignIn from './Pages/Auth/SignIn'
+import NewQuestion from './Pages/NewQuestion/NewQuestion'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='question/:id' element={<QuestionPage />} />
             <Route path='user/:id' element={<UserPage />} />
-
+            <Route path='new' element={<NewQuestion />} />
           </Route>
 
           <Route path='/signin' element={<SignIn />} />
