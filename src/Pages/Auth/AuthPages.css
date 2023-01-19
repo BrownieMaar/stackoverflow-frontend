@@ -9,7 +9,7 @@
     padding: 2rem;
 }
 
-input {
+.authcard>form>div>input {
     border-width: 0;
     padding: .5rem;
     max-width: 50vw;
