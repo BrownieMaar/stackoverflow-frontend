@@ -13,3 +13,7 @@ export const setSignedInUser = userDTO => {
 export const signUserOut = () => {
     window.currentUser = null;
 }
+
+export const isSignedInUserAdmin = () => {
+    return window?.currentUser.isAdmin === true;
+}
