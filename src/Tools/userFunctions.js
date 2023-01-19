@@ -15,5 +15,5 @@ export const signUserOut = () => {
 }
 
 export const isSignedInUserAdmin = () => {
-    return window?.currentUser.isAdmin === true;
+    return window?.currentUser?.isAdmin === true;
 }
