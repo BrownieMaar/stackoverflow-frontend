@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Loading from "../../Components/Loading";
+import { getSignedInUserObject, isUserSignedIn } from "../../Tools/checkUserSignedIn";
 import AnswerCard from "./AnswerCard";
 import QuestionCardDetailed from "./QuestionCardDetailed";
+import "./QuestionPage.css"
 
 export default function QuestionPage() {
   const { id } = useParams();
   const [questionDTO, setQuestionDTO] = useState(null);
+  const [answerInput, setAnswerInput] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -18,14 +22,61 @@ export default function QuestionPage() {
     fetchData();
   }, []);
 
+
+  const deleteAnswer = id => {
+    fetch("/api/answers/" + id, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          const newQuestionDTO = { ...questionDTO };
+          newQuestionDTO.answers = newQuestionDTO.answers.filter(answer => answer.id !== id)
+          setQuestionDTO(newQuestionDTO);
+        }
+        else alert("error")
+      })
+  }
+
+  const handleSubmit = () => {
+    fetch("/api/answers/", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        answer: answerInput,
+        question_id: questionDTO.id,
+        user_id: getSignedInUserObject().id
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        const newQuestionDTO = { ...questionDTO };
+        newQuestionDTO.answers.push(data);
+        setQuestionDTO(newQuestionDTO);
+      });
+  }
+
   return questionDTO ?
     <div className="questionpage-cards">
       <QuestionCardDetailed questionPageDTO={questionDTO} />
-      {questionDTO.answers.map(answer => <AnswerCard key={answer.id} answerDTO={answer} />)}
+      {questionDTO.answers.map(answer => <AnswerCard key={answer.id} answerDTO={answer} deleteAnswer={() => deleteAnswer(answer.id)} />)}
 
       <div className="card answer">
-        <div className="answer user">Add new question:</div>
+        {isUserSignedIn() ?
+          <>
+            <div className="answer user">Add new answer:</div>
+            <textarea rows={3} onInput={e => setAnswerInput(e.target.value)}></textarea>
 
+            <div className="flex-end"><button className="clickable" onClick={handleSubmit}>Submit</button></div>
+
+          </>
+          :
+          <>
+            <div className="answer user">To post an answer to this question, <b className="clickable" onClick={() => navigate("/signin")}>Sign in</b> or <b className="clickable" onClick={() => navigate("/register")}>Register</b>.</div>
+          </>
+        }
       </div>
     </div>
     :

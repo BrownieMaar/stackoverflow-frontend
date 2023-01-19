@@ -7,6 +7,7 @@ import UserPage from './Pages/UserPage/UserPage'
 import Layout from './Pages/Layout'
 import SignIn from './Pages/Auth/SignIn'
 import NewQuestion from './Pages/NewQuestion/NewQuestion'
+import Register from './Pages/Auth/Register'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           </Route>
 
           <Route path='/signin' element={<SignIn />} />
+          <Route path='/register' element={<Register />} />
 
         </Routes>
       </Router>

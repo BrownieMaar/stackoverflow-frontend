@@ -27,6 +27,19 @@
     text-align: left;
 }
 
+.card.answer>textarea {
+    width: calc(100% - 1rem);
+    margin: 1rem 0 1rem 0;
+    padding: .5rem;
+}
+
+.answer.infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .flex-end {
-    align-self: flex-end;
+    justify-self: flex-end;
 }

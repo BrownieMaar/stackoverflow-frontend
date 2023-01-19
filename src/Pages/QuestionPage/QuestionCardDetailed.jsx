@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../Components/UserAvatar";
+import { getSignedInUserObject } from "../../Tools/checkUserSignedIn";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
-import "./QuestionPage.css"
 
 export default function QuestionCardDetailed({ questionPageDTO }) {
     const navigate = useNavigate()
@@ -14,7 +14,10 @@ export default function QuestionCardDetailed({ questionPageDTO }) {
         <div className="question detailed">
             <h2>{questionPageDTO.title}</h2>
             <p>{questionPageDTO.description}</p>
-            <p className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</p>
+            <div className="answer infos">
+                <div>{getSignedInUserObject()?.id === questionPageDTO.user.id ? <p className="clickable" onClick={() => alert("Fuck you")}>🗑️</p> : ""}</div>
+                <p className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</p>
+            </div>
         </div>
     </div>
 }

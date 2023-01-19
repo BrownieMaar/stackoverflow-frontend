@@ -20,7 +20,7 @@ export default function UserPage() {
 
   const signOut = () => {
     window.currentUser = null;
-    navigate("/");
+    history.back();
   }
 
   return userPageDTO ? (

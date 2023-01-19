@@ -13,7 +13,7 @@ export default function SignIn() {
         try {
             const data = await res.json();
             window.currentUser = data;
-            navigate("/");
+            history.back();
         } catch (error) {
             alert("Failed!"); // TODO: értelmesen
         }
