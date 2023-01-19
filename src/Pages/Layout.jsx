@@ -11,8 +11,8 @@ export default function Layout() {
             {
                 window.currentUser ?
                     <>
-                        <div className="clickable" onClick={() => navigate("/user/" + window.currentUser.id)}>{window.currentUser.name}'s Profile</div>
                         <div className="clickable" onClick={() => navigate("/new")}>New Question</div>
+                        <div className="clickable" onClick={() => navigate("/user/" + window.currentUser.id)}>{window.currentUser.name}'s Profile</div>
                     </> :
                     <>
                         <div className="clickable" onClick={() => navigate("/signin")}>Sign in</div>
