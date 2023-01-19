@@ -18,8 +18,9 @@ export default function QuestionPage() {
       const data = await response.json();
       console.log(data);
       setQuestionDTO(data);
+      window.document.title = `${data.user.name}: ${data.title} - Stackoverflow++`
     }
-    fetchData();
+    fetchData()
   }, []);
 
 
@@ -37,7 +38,7 @@ export default function QuestionPage() {
         else alert("error")
       })
   }
-  
+
   const deleteQuestion = () => {
     fetch("/api/questions/" + id, {
       method: "DELETE"

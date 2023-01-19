@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import "./AuthPages.css"
 import logo from "../../Components/logo-wide.png"
@@ -8,6 +8,10 @@ export default function SignIn() {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
+
+    useEffect( () => {
+        window.document.title = "Sign in - Stackoverflow++"
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

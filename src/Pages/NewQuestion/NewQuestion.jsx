@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { isUserSignedIn } from "../../Tools/userFunctions";
 import "./NewQuestion.css"
 
 export default function NewQuestion() {
     const navigate = useNavigate();
+
+    useEffect( () => {
+        window.document.title = "New Question - Stackoverflow++"
+    }, []);
 
     const onSubmit = e => {
         e.preventDefault();

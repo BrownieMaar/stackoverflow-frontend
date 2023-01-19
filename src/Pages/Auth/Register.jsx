@@ -10,6 +10,10 @@ export default function Register() {
     const [errorMessage, setErrorMessage] = useState("Don't use your real passwords, the passwords on this page are not yet encrypted!");
     const navigate = useNavigate();
 
+    useEffect( () => {
+        window.document.title = "Register - Stackoverflow++"
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password === passwordAgain) {
