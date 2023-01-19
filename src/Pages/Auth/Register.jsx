@@ -44,7 +44,7 @@ export default function Register() {
     }
 
     return <>
-        <img className="logo-img" src={logo} alt="Stackoverflow++ logo" />
+        <img className="logo-img clickable" src={logo} alt="Stackoverflow++ logo" onClick={() => navigate("/")}/>
         <h2>Register to<br /><i>Stackoverflow++</i></h2>
         <div className="authcard">
             <form>

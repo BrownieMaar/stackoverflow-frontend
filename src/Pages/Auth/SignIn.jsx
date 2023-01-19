@@ -28,7 +28,7 @@ export default function SignIn() {
     }
 
     return <>
-        <img className="logo-img" src={logo} alt="Stackoverflow++ logo" />
+        <img className="logo-img clickable" src={logo} alt="Stackoverflow++ logo" onClick={() => navigate("/")}/>
         <h2>Sign in to<br /><i>Stackoverflow++</i></h2>
         <div className="authcard">
             <form>
