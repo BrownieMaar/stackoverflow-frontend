@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../Components/UserAvatar";
-import { getSignedInUserObject } from "../../Tools/checkUserSignedIn";
+import { getSignedInUserObject } from "../../Tools/userFunctions";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
 
 export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion }) {

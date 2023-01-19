@@ -9,3 +9,7 @@ export const getSignedInUserObject = () => {
 export const setSignedInUser = userDTO => {
     window.currentUser = userDTO;
 }
+
+export const signUserOut = () => {
+    window.currentUser = null;
+}

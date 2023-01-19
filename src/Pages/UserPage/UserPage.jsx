@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Loading from "../../Components/Loading";
 import "./UserPage.css";
 import QARatio from "../../Components/QARatio";
+import { signUserOut } from "../../Tools/userFunctions";
 
 export default function UserPage() {
   const { id } = useParams();
@@ -17,11 +18,25 @@ export default function UserPage() {
       setUserPageDTO(data);
     }
     fetchData();
-  }, []);
+  }, [id]);
 
   const signOut = () => {
     window.currentUser = null;
     history.back();
+  }
+
+  const deleteUser = async () => {
+    const resp = await fetch("/api/user/" + userPageDTO.id, {
+      method: "DELETE"
+    })
+    const data = await resp.json();
+    if (data) {
+      signUserOut();
+      navigate("/");
+    }
+    else {
+      alert("Couldn't delete user")
+    }
   }
 
   return userPageDTO ? (
@@ -40,7 +55,16 @@ export default function UserPage() {
       <div className="options">
         <div className="button clickable">Questions</div>
         <div className="button clickable">Answers</div>
-        {window.currentUser && window.currentUser.id === userPageDTO.id ? <div className="button clickable" onClick={signOut}>Sign Out</div> : <></> }
+      </div>
+      <div className="options">
+        {window.currentUser && window.currentUser.id === userPageDTO.id ?
+          <>
+            <div className="button clickable warning" onClick={deleteUser}>Delete account</div>
+            <div className="button clickable" onClick={signOut}>Sign Out</div>
+
+          </> :
+          <></>
+        }
       </div>
     </>
   ) : (

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { isUserSignedIn } from "../../Tools/checkUserSignedIn";
+import { isUserSignedIn } from "../../Tools/userFunctions";
 import "./NewQuestion.css"
 
 export default function NewQuestion() {

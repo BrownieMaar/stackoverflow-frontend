@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { setSignedInUser } from "../../Tools/checkUserSignedIn";
+import { setSignedInUser } from "../../Tools/userFunctions";
 import logo from "../../Components/logo-wide.png"
 
 export default function Register() {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import Loading from "../../Components/Loading";
-import { getSignedInUserObject, isUserSignedIn } from "../../Tools/checkUserSignedIn";
+import { getSignedInUserObject, isUserSignedIn } from "../../Tools/userFunctions";
 import AnswerCard from "./AnswerCard";
 import QuestionCardDetailed from "./QuestionCardDetailed";
 import "./QuestionPage.css"

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { getSignedInUserObject } from "../../Tools/checkUserSignedIn";
+import { getSignedInUserObject } from "../../Tools/userFunctions";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
 
 export default function AnswerCard({ answerDTO, deleteAnswer }) {
