@@ -20,10 +20,17 @@ input {
 .authbutton {
     max-width: calc(50vw + 1rem);
     width: calc(250px + 1rem);
+
     margin-top: 1rem;
     margin-bottom: .5rem;
     padding: .5rem;
+
     font-size: large;
+
+    background-color: var(--accent-color);
+    border: 0;
+
+    cursor: pointer;
 }
 
 .label {
