@@ -67,6 +67,7 @@ export default function QuestionPage() {
       .then(data => {
         const newQuestionDTO = { ...questionDTO };
         newQuestionDTO.answers.push(data);
+        window.document.getElementById("answer-textarea").value = "";
         setQuestionDTO(newQuestionDTO);
       });
   }
@@ -81,7 +82,7 @@ export default function QuestionPage() {
         {isUserSignedIn() ?
           <>
             <div className="answer user">Add new answer:</div>
-            <textarea rows={3} onInput={e => setAnswerInput(e.target.value)}></textarea>
+            <textarea rows={3} onInput={e => setAnswerInput(e.target.value)} id="answer-textarea"></textarea>
 
             <div className="flex-end"><button className="clickable" onClick={handleSubmit}>Submit</button></div>
 
