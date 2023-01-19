@@ -33,7 +33,9 @@ textarea {
 }
 
 button {
+    border-radius: 5px;
     background-color: var(--accent-color);
     border: 0;
     font-size: large;
+    padding: .5rem;
 }
