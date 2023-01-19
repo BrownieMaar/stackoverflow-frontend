@@ -1,0 +1,28 @@
+.letter-avatar {
+    font-size: 30px;
+
+    height: 40px;
+    width: 40px;
+
+    background-color: var(--accent-color);
+
+    padding: .5rem;
+    border-radius: 100%;
+    margin-bottom: .5rem;
+
+    user-select: none;
+}
+
+.letter-avatar-big {
+    font-size: 120px;
+  
+    height: 160px;
+    width: 160px;
+  
+    background-color: var(--accent-color);
+  
+    padding: 0.5rem;
+    border-radius: 100%;
+    margin-bottom: 0.5rem;
+    user-select: none;
+  }

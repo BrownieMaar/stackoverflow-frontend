@@ -3,7 +3,7 @@ import UserAvatar from "../../Components/UserAvatar";
 import { getSignedInUserObject } from "../../Tools/checkUserSignedIn";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
 
-export default function QuestionCardDetailed({ questionPageDTO }) {
+export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion }) {
     const navigate = useNavigate()
 
     return <div className="card detailed">
@@ -15,7 +15,7 @@ export default function QuestionCardDetailed({ questionPageDTO }) {
             <h2>{questionPageDTO.title}</h2>
             <p>{questionPageDTO.description}</p>
             <div className="answer infos">
-                <div>{getSignedInUserObject()?.id === questionPageDTO.user.id ? <p className="clickable" onClick={() => alert("Fuck you")}>🗑️</p> : ""}</div>
+                <div>{getSignedInUserObject()?.id === questionPageDTO.user.id ? <p className="clickable" onClick={deleteQuestion}>🗑️</p> : ""}</div>
                 <p className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</p>
             </div>
         </div>

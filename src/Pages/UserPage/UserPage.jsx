@@ -31,9 +31,8 @@ export default function UserPage() {
         </div>
         <div className="user-details">
           <div className="user-name">{userPageDTO.name}</div>
-          <div className="user-registration">Joined: <i>{userPageDTO.registration.split("T").join(" ")}</i></div>
-          <div className="user-questions">Questions: <i>{userPageDTO.questions}</i></div>
-          <div className="user-answers">Answers: <i>{userPageDTO.answers}</i></div>
+          <div className="user-registration">Joined: <i>{new Date(userPageDTO.registration).toLocaleString()}</i></div>
+          <div className="user-questions">Q/A: <span className="qa-ratio"><span>{userPageDTO.questions}</span> / <span>{userPageDTO.answers}</span></span></div>
         </div>
       </div>
 

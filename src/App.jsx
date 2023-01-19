@@ -8,6 +8,7 @@ import Layout from './Pages/Layout'
 import SignIn from './Pages/Auth/SignIn'
 import NewQuestion from './Pages/NewQuestion/NewQuestion'
 import Register from './Pages/Auth/Register'
+import Users from './Pages/Users/Users'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='question/:id' element={<QuestionPage />} />
             <Route path='user/:id' element={<UserPage />} />
             <Route path='new' element={<NewQuestion />} />
+            <Route path="/users" element={<Users />} />
           </Route>
 
           <Route path='/signin' element={<SignIn />} />

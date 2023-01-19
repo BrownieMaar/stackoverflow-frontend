@@ -37,6 +37,19 @@ export default function QuestionPage() {
         else alert("error")
       })
   }
+  
+  const deleteQuestion = () => {
+    fetch("/api/questions/" + id, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          navigate("/");
+        }
+        else alert("error")
+      })
+  }
 
   const handleSubmit = () => {
     fetch("/api/answers/", {
@@ -58,9 +71,10 @@ export default function QuestionPage() {
       });
   }
 
+
   return questionDTO ?
     <div className="questionpage-cards">
-      <QuestionCardDetailed questionPageDTO={questionDTO} />
+      <QuestionCardDetailed questionPageDTO={questionDTO} deleteQuestion={deleteQuestion} />
       {questionDTO.answers.map(answer => <AnswerCard key={answer.id} answerDTO={answer} deleteAnswer={() => deleteAnswer(answer.id)} />)}
 
       <div className="card answer">

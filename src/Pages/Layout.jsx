@@ -7,7 +7,7 @@ export default function Layout() {
     return <>
         <header>
             <div className="logo clickable" onClick={() => navigate("/")}>Stackoverflow++</div>
-            <div className="clickable">Users</div>
+            <div className="clickable" onClick={() => navigate("/users")}>Users</div>
             {
                 window.currentUser ?
                     <>
