@@ -12,6 +12,7 @@ export default function HomePage() {
             const response = await fetch('/api/questions/all');
             const data = await response.json();
             console.log(data);
+            data.sort((questionA, questionB) => new Date(questionB.created) - new Date(questionA.created))
             setQuestions(data);
         }
         fetchData();
