@@ -4,15 +4,6 @@
     gap: 2rem;
 }
 
-.card-holder>* {
-  transition: background-color .1s;
-}
-
-.card-holder>*:hover {
-  transition: background-color .1s;
-  background-color: var(--background-accented);
-}
-
 
 
 /* loading */

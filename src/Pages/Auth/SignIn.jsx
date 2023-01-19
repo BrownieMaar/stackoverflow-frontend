@@ -34,7 +34,7 @@ export default function SignIn() {
                 <div className="label">Password</div>
                 <div><input type="password" onInput={e => setPassword(e.target.value)} /></div>
 
-                <div className="error-message">{errorMessage}</div>
+                <div className="error message">{errorMessage}</div>
 
                 <button type="submit" className="authbutton" onClick={handleSubmit}>Sign in</button>
                 
