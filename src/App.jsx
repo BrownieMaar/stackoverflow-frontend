@@ -11,7 +11,7 @@ import NewQuestion from './Pages/NewQuestion/NewQuestion'
 function App() {
 
   useEffect(() => {
-    if (window.currentUser) window.currentUser = null;
+    if (!window.currentUser) window.currentUser = null;
   }, []);
 
 
