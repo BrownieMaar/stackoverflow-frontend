@@ -33,7 +33,6 @@ export default function Register() {
                 setSignedInUser(userData);
                 navigate("/user/" + user_id);
             } catch (error) {
-                console.log(error);
                 setErrorMessage("Failed to register. Maybe username already exists?");
             }
         } else {

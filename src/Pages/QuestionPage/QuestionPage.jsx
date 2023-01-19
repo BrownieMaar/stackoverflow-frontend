@@ -16,7 +16,6 @@ export default function QuestionPage() {
     async function fetchData() {
       const response = await fetch('/api/questions/' + id);
       const data = await response.json();
-      console.log(data);
       setQuestionDTO(data);
       window.document.title = `${data.user.name}: ${data.title} - Stackoverflow++`
     }

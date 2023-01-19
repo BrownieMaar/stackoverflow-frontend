@@ -13,7 +13,6 @@ export default function Users() {
         async function fetchData() {
             const response = await fetch('/api/user/all');
             const data = await response.json();
-            console.log(data);
             setUserDTOs(data);
         }
         fetchData();
