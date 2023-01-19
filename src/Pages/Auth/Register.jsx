@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setSignedInUser } from "../../Tools/checkUserSignedIn";
-import logo from "../../Components/768px-Stack_Overflow_icon.svg.png"
+import logo from "../../Components/logo-wide.png"
 
 export default function Register() {
     const [username, setUsername] = useState("");
