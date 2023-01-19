@@ -16,7 +16,7 @@ export default function UserPage() {
       const response = await fetch("/api/user/" + id);
       const data = await response.json();
       setUserPageDTO(data);
-        window.document.title = `User ${data.name} - Stackoverflow++`
+      window.document.title = `User ${data.name} - Stackoverflow++`
     }
     fetchData();
   }, [id]);
@@ -50,6 +50,10 @@ export default function UserPage() {
           <div className="user-name">{userPageDTO.name}</div>
           <div className="user-registration">Joined: <i>{new Date(userPageDTO.registration).toLocaleString()}</i></div>
           <div>Q/A: <QARatio user={userPageDTO} span /> </div>
+          {userPageDTO.isAdmin ? 
+          <div className="user-registration"><i>{userPageDTO.name} is an admin.</i></div>
+          :
+          <></>}
         </div>
       </div>
 
