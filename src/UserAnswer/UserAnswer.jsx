@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getSignedInUserObject } from "../Tools/checkUserSignedIn";
+import { getSignedInUserObject } from "../Tools/userFunctions";
 import { timeDifferenceFormatter } from "../Tools/timeDifferenceFormatter";
 import UserAvatar from "../Components/UserAvatar";
 import Loading from "../Components/Loading";

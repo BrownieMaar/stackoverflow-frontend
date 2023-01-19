@@ -49,20 +49,6 @@ export default function UserPage() {
     }
   }
 
-  const deleteUser = async () => {
-    const resp = await fetch("/api/user/" + userPageDTO.id, {
-      method: "DELETE"
-    })
-    const data = await resp.json();
-    if (data) {
-      signUserOut();
-      navigate("/");
-    }
-    else {
-      alert("Couldn't delete user")
-    }
-  }
-
   return userPageDTO ? (
     <>
       <div className="user-card">
