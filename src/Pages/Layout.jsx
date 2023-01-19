@@ -16,7 +16,7 @@ export default function Layout() {
                     </> :
                     <>
                         <div className="clickable" onClick={() => navigate("/signin")}>Sign in</div>
-                        <div className="clickable">Register</div>
+                        <div className="clickable" onClick={() => navigate("/register")}>Register</div>
                     </>
 
             }

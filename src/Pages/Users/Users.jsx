@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react"
+import Loading from "../../Components/Loading";
+import UserCard from "./UserCard.jsx"
+import "./UserCards.css"
 
 export default function Users() {
-    const [userDTOs, setUserDTOs] = useState();
+    const [userDTOs, setUserDTOs] = useState(null);
+    useEffect( () => {
+        window.document.title = "Users - Stackoverflow++"
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('/api/questions/all');
+            const response = await fetch('/api/user/all');
             const data = await response.json();
-            console.log(data);
-            data.sort((questionA, questionB) => new Date(questionB.created) - new Date(questionA.created))
-            setQuestions(data);
+            setUserDTOs(data);
         }
         fetchData();
       }, []);
 
-    return <div className="user-grid">
-
+    return userDTOs ? <div className="user-grid">
+        {userDTOs.map(userDTO => <UserCard key={userDTO.id} userDTO={userDTO} /> )}
     </div>
+    :
+    <Loading />
 }

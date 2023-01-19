@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import Loading from "../../Components/Loading";
-import { getSignedInUserObject, isUserSignedIn } from "../../Tools/checkUserSignedIn";
+import { getSignedInUserObject, isUserSignedIn } from "../../Tools/userFunctions";
 import AnswerCard from "./AnswerCard";
 import QuestionCardDetailed from "./QuestionCardDetailed";
 import "./QuestionPage.css"
@@ -16,10 +16,10 @@ export default function QuestionPage() {
     async function fetchData() {
       const response = await fetch('/api/questions/' + id);
       const data = await response.json();
-      console.log(data);
       setQuestionDTO(data);
+      window.document.title = `${data.user.name}: ${data.title} - Stackoverflow++`
     }
-    fetchData();
+    fetchData()
   }, []);
 
 
@@ -37,7 +37,7 @@ export default function QuestionPage() {
         else alert("error")
       })
   }
-  
+
   const deleteQuestion = () => {
     fetch("/api/questions/" + id, {
       method: "DELETE"
@@ -67,6 +67,7 @@ export default function QuestionPage() {
       .then(data => {
         const newQuestionDTO = { ...questionDTO };
         newQuestionDTO.answers.push(data);
+        window.document.getElementById("answer-textarea").value = "";
         setQuestionDTO(newQuestionDTO);
       });
   }
@@ -81,7 +82,7 @@ export default function QuestionPage() {
         {isUserSignedIn() ?
           <>
             <div className="answer user">Add new answer:</div>
-            <textarea rows={3} onInput={e => setAnswerInput(e.target.value)}></textarea>
+            <textarea rows={3} onInput={e => setAnswerInput(e.target.value)} id="answer-textarea"></textarea>
 
             <div className="flex-end"><button className="clickable" onClick={handleSubmit}>Submit</button></div>
 

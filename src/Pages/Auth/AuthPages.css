@@ -5,21 +5,21 @@
     width: fit-content;
 
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding: 2rem;
 }
 
 .authcard>form>div>input {
     border-width: 0;
     padding: .5rem;
-    max-width: 50vw;
-    width: 250px;
+    max-width: 70vw;
+    width: 300px;
     font-size: large;
 }
 
 .authbutton {
-    max-width: calc(50vw + 1rem);
-    width: calc(250px + 1rem);
+    max-width: calc(70vw + 1rem);
+    width: calc(300px + 1rem);
 
     margin-top: 1rem;
     margin-bottom: .5rem;
@@ -38,4 +38,21 @@
     margin-top: 1rem;
     margin-bottom: .5rem;
     font-weight: 400;
+}
+
+.message {
+    margin-top: .5rem;
+    width: 300px;
+    max-width: 70vw;
+}
+
+.error.message {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.logo-img {
+    width: 100px;
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
