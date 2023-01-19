@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { isUserSignedIn } from "../../Tools/checkUserSignedIn";
 import "./NewQuestion.css"
 
 export default function NewQuestion() {
@@ -30,7 +31,7 @@ export default function NewQuestion() {
 
     return <>
         {
-            false ?
+            !isUserSignedIn() ?
                 <>
                     <h3>You need to be signed in to ask a new question.</h3>
                     <p><b className="clickable" onClick={() => navigate("/signin")}>Sign in</b> or <b className="clickable" onClick={() => navigate("/register")}>Register</b></p>

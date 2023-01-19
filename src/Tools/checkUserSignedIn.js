@@ -5,3 +5,7 @@ export const isUserSignedIn = () => {
 export const getSignedInUserObject = () => {
     return window.currentUser
 }
+
+export const setSignedInUser = userDTO => {
+    window.currentUser = userDTO;
+}
