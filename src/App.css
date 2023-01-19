@@ -16,3 +16,23 @@ h1 {
 h2 {
     font-weight: 400;
 }
+
+input, textarea {
+    margin: 0;
+    border: 0;
+    font-size: large;
+
+    background-color: var(--background-accented);
+    border-radius: 5px;
+    color: var(--foreground-color);
+}
+
+textarea {
+    font-family: unset;
+}
+
+button {
+    background-color: var(--accent-color);
+    border: 0;
+    font-size: large;
+}
