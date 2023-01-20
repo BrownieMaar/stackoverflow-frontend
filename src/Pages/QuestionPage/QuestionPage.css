@@ -54,3 +54,19 @@
 .flex-end {
     justify-self: flex-end;
 }
+
+.upvote {
+    background-color: rgb(64, 128, 64);
+}
+
+.downvote {
+    background-color: rgb(255, 64, 64);
+}
+
+.glow {
+    transition: all .1s;
+}
+.glow:hover {
+    background-color: var(--background-accented);
+    transition: all .1s;
+}

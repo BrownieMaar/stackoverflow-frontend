@@ -16,6 +16,7 @@ export default function QuestionPage() {
     async function fetchData() {
       const response = await fetch('/api/questions/' + id);
       const data = await response.json();
+      console.log(data);
       setQuestionDTO(data);
       window.document.title = `${data.user.name}: ${data.title} - Stackoverflow++`
     }
@@ -72,10 +73,39 @@ export default function QuestionPage() {
       });
   }
 
+  const handleQuestionVoteClick = async (isUpVote) => {
+    if (!getSignedInUserObject()) return;
+
+    const res = await fetch("/api/questions/vote", {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        vote: isUpVote,
+        userId: getSignedInUserObject().id,
+        questionId: questionDTO.id
+      })
+    });
+    const isSuccess = await res.json();
+    console.log(isSuccess);
+    if (!isSuccess) return;
+    const newQuestionDTO = { ...questionDTO };
+    if (isUpVote) {
+      const uid = getSignedInUserObject().id;
+      newQuestionDTO.upVoteIds = newQuestionDTO.upVoteIds.includes(uid) ? newQuestionDTO.upVoteIds.filter(id => id !== uid) : newQuestionDTO.upVoteIds.push(uid)
+    }
+    if (!isUpVote) {
+      const uid = getSignedInUserObject().id;
+      newQuestionDTO.downVoteIds = newQuestionDTO.downVoteIds.includes(uid) ? newQuestionDTO.downVoteIds.filter(id => id !== uid) : newQuestionDTO.downVoteIds.push(uid)
+    }
+    setQuestionDTO(newQuestionDTO);
+  }
+
 
   return questionDTO ?
     <div className="questionpage-cards">
-      <QuestionCardDetailed questionPageDTO={questionDTO} deleteQuestion={deleteQuestion} />
+      <QuestionCardDetailed questionPageDTO={questionDTO} deleteQuestion={deleteQuestion} handleVoteClick={handleQuestionVoteClick} />
       {questionDTO.answers.map(answer => <AnswerCard key={answer.id} answerDTO={answer} deleteAnswer={() => deleteAnswer(answer.id)} />)}
 
       <div className="card answer">

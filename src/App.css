@@ -47,4 +47,6 @@ b {
 .emoji {
     font-family: 'Noto Emoji', sans-serif;
     font-weight: 700;
+    border-radius: 20%;
+    padding: .2rem;
 }
