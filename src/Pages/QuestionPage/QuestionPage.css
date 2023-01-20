@@ -15,7 +15,10 @@
 }
 .answer.user {
     font-style: italic;
+}
 
+.question.detailed {
+    padding: 1rem;
 }
 
 .questionpage-cards {
@@ -36,8 +39,16 @@
 .answer.infos {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    margin-top: 1rem;
     justify-content: space-between;
     width: 100%;
+}
+
+.answer.infos>* {
+    flex-grow: 1;
 }
 
 .flex-end {

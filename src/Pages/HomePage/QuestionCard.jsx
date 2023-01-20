@@ -14,6 +14,9 @@ export default function QuestionCard({ question }) {
         <div className="question" onClick={() => navigate("/question/" + question.id)}>
             <h2>{question.title}</h2>
             <div className="question-infos">
+                <p>
+                    <span className="emoji">👍</span> {question.upVoteCount}&emsp;<span className="emoji">👎</span> {question.upVoteCount}
+                </p>
                 <p>Answers: {question.answerCount}</p>
                 <p title={new Date(question.created).toLocaleString()}>{timeDifferenceFormatter(new Date(question.created))}</p>
             </div>

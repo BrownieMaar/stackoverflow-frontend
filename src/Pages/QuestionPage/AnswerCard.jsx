@@ -10,7 +10,10 @@ export default function AnswerCard({ answerDTO, deleteAnswer }) {
             <div className="answer user"><span className="clickable" onClick={() => navigate("/user/" + answerDTO.user.id)}>{answerDTO.user.name}</span> said:</div>
             <p>{answerDTO.answer}</p>
             <div className="answer infos">
-                <div>{getSignedInUserObject()?.id === answerDTO.user.id || isSignedInUserAdmin() ? <div className="clickable" onClick={deleteAnswer}>🗑️</div> : ""}</div>
+                <div>
+                    <span className="emoji">👍</span> {answerDTO.upVoteCount}&emsp;<span className="emoji">👎</span> {answerDTO.upVoteCount}
+                </div>
+                {getSignedInUserObject()?.id === answerDTO.user.id || isSignedInUserAdmin() ? <div className="clickable" onClick={deleteAnswer}>🗑️</div> : ""}
                 <div className="flex-end" title={new Date(answerDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(answerDTO.created))}</div>
 
             </div>

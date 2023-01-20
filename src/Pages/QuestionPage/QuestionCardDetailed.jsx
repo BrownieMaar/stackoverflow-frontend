@@ -15,8 +15,11 @@ export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion }
             <h2>{questionPageDTO.title}</h2>
             <p>{questionPageDTO.description}</p>
             <div className="answer infos">
-                <div>{getSignedInUserObject()?.id === questionPageDTO.user.id || isSignedInUserAdmin() ? <p className="clickable" onClick={deleteQuestion}>🗑️</p> : ""}</div>
-                <p className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</p>
+                <div>
+                    <span className="emoji">👍</span> {questionPageDTO.upVoteCount}&emsp;<span className="emoji">👎</span> {questionPageDTO.upVoteCount}
+                </div>
+                {getSignedInUserObject()?.id === questionPageDTO.user.id || isSignedInUserAdmin() ? <div className="clickable" onClick={deleteQuestion}>🗑️</div> : <></>}
+                <div className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</div>
             </div>
         </div>
     </div>

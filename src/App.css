@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@700&family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 .App {
     max-width: 800px;
@@ -42,4 +42,9 @@ button {
 
 b {
     font-weight: 400;
+}
+
+.emoji {
+    font-family: 'Noto Emoji', sans-serif;
+    font-weight: 700;
 }
