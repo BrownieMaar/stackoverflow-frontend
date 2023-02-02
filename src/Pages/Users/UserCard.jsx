@@ -3,14 +3,19 @@ import QARatio from "../../Components/QARatio";
 import UserAvatar from "../../Components/UserAvatar";
 
 export default function UserCard({ userDTO }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return <div className="usercard" onClick={() => navigate("/user/" + userDTO.id)}>
+  return (
+    <div
+      style={{ backgroundColor: `${userDTO.colorHex}`, color: "white" }}
+      className="usercard"
+      onClick={() => navigate("/user/" + userDTO.id)}
+    >
+      <UserAvatar user={userDTO} />
 
-        <UserAvatar user={userDTO} />
+      <b>{userDTO.name}</b>
 
-        <b>{userDTO.name}</b>
-
-        <QARatio user={userDTO} />
+      <QARatio user={userDTO} />
     </div>
+  );
 }
