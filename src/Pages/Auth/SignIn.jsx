@@ -15,7 +15,7 @@ export default function SignIn() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch(`/api/user/auth?name=${username}&password=${password}`);
+        const res = await fetch(`/api/user/auth?name=${username}&password=${password}&colorHex=0000`);
         try {
             const data = await res.json();
             window.currentUser = data;

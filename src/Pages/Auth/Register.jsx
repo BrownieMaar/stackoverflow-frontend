@@ -20,7 +20,6 @@ export default function Register() {
   }, []);
 
   const handleSubmit = async (e) => {
-    console.log(pickedColor);
     e.preventDefault();
     if (password === passwordAgain) {
       const res = await fetch(`/api/user/`, {

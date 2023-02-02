@@ -56,7 +56,7 @@ export default function UserPage() {
 
   return userPageDTO ? (
     <>
-      <div className="user-card">
+      <div className="user-card" style={{backgroundColor: userPageDTO.colorHex}}>
         <div className="user-avatar">
           <UserAvatar user={userPageDTO} isBigSize />
         </div>
