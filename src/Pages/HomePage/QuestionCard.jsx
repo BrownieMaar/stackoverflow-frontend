@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import UserAvatar from "../../Components/UserAvatar";
+import Vote from "../../Components/Vote";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
 import "./Question.css"
 
-export default function QuestionCard({ question }) {
-    const navigate = useNavigate();    
+export default function QuestionCard({ question, refresh }) {
+    const navigate = useNavigate();
 
     return <div className="card clickable">
         <div className="username" onClick={() => navigate("/user/" + question.user.id)}>
@@ -15,7 +16,7 @@ export default function QuestionCard({ question }) {
             <h2>{question.title}</h2>
             <div className="question-infos">
                 <p>
-                    <span className="emoji">👍</span> {question.upVoteCount}&emsp;<span className="emoji">👎</span> {question.upVoteCount}
+                    <Vote card={question} refresh={refresh}/>
                 </p>
                 <p>Answers: {question.answerCount}</p>
                 <p title={new Date(question.created).toLocaleString()}>{timeDifferenceFormatter(new Date(question.created))}</p>

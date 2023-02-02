@@ -1,0 +1,14 @@
+.votes {
+
+}
+
+#upVote-green {
+    background: -webkit-linear-gradient(green, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#downVote-red {
+    color: red;
+}

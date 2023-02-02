@@ -1,4 +1,7 @@
 .letter-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
 
     height: 40px;
@@ -14,6 +17,9 @@
 }
 
 .letter-avatar-big {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 120px;
   
     height: 160px;

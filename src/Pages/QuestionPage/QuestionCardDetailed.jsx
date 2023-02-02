@@ -2,9 +2,11 @@ import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../Components/UserAvatar";
 import { getSignedInUserObject, isSignedInUserAdmin } from "../../Tools/userFunctions";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
+import Vote from "../../Components/Vote";
+import { useState } from "react";
 
-export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion }) {
-    const navigate = useNavigate()
+export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion, refresh }) {
+    const navigate = useNavigate();
 
     return <div className="card detailed">
         <div className="username clickable" onClick={() => navigate("/user/" + questionPageDTO.user.id)}>
@@ -16,7 +18,7 @@ export default function QuestionCardDetailed({ questionPageDTO, deleteQuestion }
             <p>{questionPageDTO.description}</p>
             <div className="answer infos">
                 <div>
-                    <span className="emoji">👍</span> {questionPageDTO.upVoteCount}&emsp;<span className="emoji">👎</span> {questionPageDTO.upVoteCount}
+                    <Vote card={questionPageDTO} refresh={refresh} />
                 </div>
                 {getSignedInUserObject()?.id === questionPageDTO.user.id || isSignedInUserAdmin() ? <div className="clickable" onClick={deleteQuestion}>🗑️</div> : <></>}
                 <div className="flex-end" title={new Date(questionPageDTO.created).toLocaleString()}>{timeDifferenceFormatter(new Date(questionPageDTO.created))}</div>
