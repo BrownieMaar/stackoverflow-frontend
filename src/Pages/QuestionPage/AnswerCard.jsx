@@ -13,7 +13,7 @@ export default function AnswerCard({ answerDTO, deleteAnswer, refresh }) {
     <>
       <div
         style={{
-          backgroundColor: `${answerDTO.user.colorhex}`,
+          background: `radial-gradient(ellipse at center, ${answerDTO.user.colorhex} 50%, black 185%)`,
           color: "white",
         }}
         className="card answer"

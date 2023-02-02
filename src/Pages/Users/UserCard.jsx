@@ -7,7 +7,9 @@ export default function UserCard({ userDTO }) {
 
   return (
     <div
-      style={{ backgroundColor: `${userDTO.colorHex}`, color: "white" }}
+      style={{
+        background: `radial-gradient(ellipse at center, ${userDTO.colorHex} 70%, black 185%)`,
+      }}
       className="usercard"
       onClick={() => navigate("/user/" + userDTO.id)}
     >

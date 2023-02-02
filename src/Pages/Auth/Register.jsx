@@ -61,7 +61,9 @@ export default function Register() {
         <i>Stackoverflow++</i>
       </h2>
       <div
-        style={{ backgroundColor: `${pickedColor}`, color: "white" }}
+        style={{
+          background: `radial-gradient(circle at center, ${pickedColor} 30%, black 185%)`,
+        }}
         className="authcard"
       >
         <form>
@@ -88,7 +90,7 @@ export default function Register() {
           <div className="label">Pick your color:</div>
           <div id="picker">
             <CirclePicker
-              width="300px"
+              width="100%"
               color={pickedColor}
               onChangeComplete={(color) => {
                 setPickedColor(color.hex);

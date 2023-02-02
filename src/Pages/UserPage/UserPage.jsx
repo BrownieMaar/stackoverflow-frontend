@@ -30,7 +30,7 @@ export default function UserPage() {
       const response = await fetch("/api/user/" + id);
       const data = await response.json();
       setUserPageDTO(data);
-      window.document.title = `User ${data.name} - Stackoverflow++`
+      window.document.title = `User ${data.name} - Stackoverflow++`;
     }
     fetchData();
   }, [id, refresh]);
@@ -42,32 +42,43 @@ export default function UserPage() {
 
   const deleteUser = async () => {
     const resp = await fetch("/api/user/" + userPageDTO.id, {
-      method: "DELETE"
-    })
+      method: "DELETE",
+    });
     const data = await resp.json();
     if (data) {
       signUserOut();
       navigate("/");
+    } else {
+      alert("Couldn't delete user");
     }
-    else {
-      alert("Couldn't delete user")
-    }
-  }
+  };
 
   return userPageDTO ? (
     <>
-      <div className="user-card" style={{backgroundColor: userPageDTO.colorHex}}>
+      <div
+        style={{
+          background: `radial-gradient(circle at center, ${userPageDTO.colorHex} 80%, black 195%)`,
+        }}
+        className="user-card"
+      >
         <div className="user-avatar">
           <UserAvatar user={userPageDTO} isBigSize />
         </div>
         <div className="user-details">
           <div className="user-name">{userPageDTO.name}</div>
-          <div className="user-registration">Joined: <i>{new Date(userPageDTO.registration).toLocaleString()}</i></div>
-          <div>Q/A: <QARatio user={userPageDTO} span /> </div>
-          {userPageDTO.isAdmin ? 
-          <div className="user-registration"><i>{userPageDTO.name} is an admin.</i></div>
-          :
-          <></>}
+          <div className="user-registration">
+            Joined: <i>{new Date(userPageDTO.registration).toLocaleString()}</i>
+          </div>
+          <div>
+            Q/A: <QARatio user={userPageDTO} span />{" "}
+          </div>
+          {userPageDTO.isAdmin ? (
+            <div className="user-registration">
+              <i>{userPageDTO.name} is an admin.</i>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 
@@ -80,17 +91,18 @@ export default function UserPage() {
         </div>
       </div>
       <div className="options">
-        {window.currentUser && window.currentUser.id === userPageDTO.id ?
+        {window.currentUser && window.currentUser.id === userPageDTO.id ? (
           <>
-          <div className="button clickable warning" onClick={deleteUser}>Delete account</div>
+            <div className="button clickable warning" onClick={deleteUser}>
+              Delete account
+            </div>
             <div className="button clickable" onClick={signOut}>
-            Sign Out
-          </div>
-          </> :
-          (
+              Sign Out
+            </div>
+          </>
+        ) : (
           <></>
-
-               )}
+        )}
       </div>
       <div className="user-option">
         {activeOption === "Questions" ? (

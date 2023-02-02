@@ -18,7 +18,7 @@ export default function QuestionCardDetailed({
   return (
     <div
       style={{
-        backgroundColor: `${questionPageDTO.user.colorhex}`,
+        background: `radial-gradient(circle at center, ${questionPageDTO.user.colorhex} 60%, black 195%)`,
         color: "white",
       }}
       className="card detailed"
