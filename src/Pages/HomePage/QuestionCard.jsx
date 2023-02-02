@@ -1,12 +1,15 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import UserAvatar from "../../Components/UserAvatar";
 import Vote from "../../Components/Vote";
 import { timeDifferenceFormatter } from "../../Tools/timeDifferenceFormatter";
-import "./Question.css"
+import "./Question.css";
 
 export default function QuestionCard({ question, refresh }) {
     const navigate = useNavigate();
-    return <div className="card clickable">
+
+    
+    return (
+    <div className="card clickable"  style={{ backgroundColor: `${question.user.colorhex}`, color: "white" }}>
         <div className="username" onClick={() => navigate("/user/" + question.user.id)}>
             <UserAvatar user={question.user} />
             <p>{question.user.name}</p>
@@ -22,4 +25,5 @@ export default function QuestionCard({ question, refresh }) {
             </div>
         </div>
     </div>
+  );
 }
