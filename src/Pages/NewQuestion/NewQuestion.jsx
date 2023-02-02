@@ -27,7 +27,7 @@ export default function NewQuestion() {
             },
             body: JSON.stringify({
                 ...newQuestion,
-                user_id: window.currentUser.id
+                user_id: JSON.parse(window.localStorage.getItem("loginInfo")).id
             })
         })
         .then(res => res.json())

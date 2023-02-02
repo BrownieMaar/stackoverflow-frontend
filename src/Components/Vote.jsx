@@ -20,7 +20,7 @@ export default function Vote({ card, refresh }) {
         },
         body: JSON.stringify({
           vote: vote,
-          userId: window.currentUser.id,
+          userId: JSON.parse(window.localStorage.getItem("loginInfo")).id,
           answerId: card.id,
         }),
       }).then(() => {
@@ -34,7 +34,7 @@ export default function Vote({ card, refresh }) {
         },
         body: JSON.stringify({
           questionId: card.id,
-          userId: window.currentUser.id,
+          userId: JSON.parse(window.localStorage.getItem("loginInfo")).id,
           vote: vote,
         }),
       }).then(() => {

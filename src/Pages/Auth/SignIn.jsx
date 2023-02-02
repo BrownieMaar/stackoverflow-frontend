@@ -20,7 +20,7 @@ export default function SignIn() {
     );
     try {
       const data = await res.json();
-      window.currentUser = data;
+      window.localStorage.setItem("loginInfo", JSON.stringify(data));
       setErrorMessage("");
       history.back();
     } catch (error) {

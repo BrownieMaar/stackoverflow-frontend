@@ -36,7 +36,7 @@ export default function UserPage() {
   }, [id, refresh]);
 
   const signOut = () => {
-    window.currentUser = null;
+    window.localStorage.setItem("loginInfo", null);
     history.back();
   };
 
@@ -91,7 +91,7 @@ export default function UserPage() {
         </div>
       </div>
       <div className="options">
-        {window.currentUser && window.currentUser.id === userPageDTO.id ? (
+        {JSON.parse(window.localStorage.getItem("loginInfo")) && JSON.parse(window.localStorage.getItem("loginInfo")).id === userPageDTO.id ? (
           <>
             <div className="button clickable warning" onClick={deleteUser}>
               Delete account
