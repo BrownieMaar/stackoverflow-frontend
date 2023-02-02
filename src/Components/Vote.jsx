@@ -48,8 +48,8 @@ export default function Vote({ card, refresh }) {
       <span className="emoji" onClick={(e) => handleVote(e)}>
         <img
           id={card.upVoteCount > 0 ? "upVote-green" : "upVote"}
-          src="https://www.freepnglogos.com/uploads/eggplant-png/download-eggplant-emoji-icon-emoji-island-18.png"
-          alt="Leave - Eggplant Emoji Transparent Background @clipartmax.com"
+          src="https://cdn3.emoji.gg/emojis/8558-upvote.png"
+          alt="High Quality Imgflip Upvote Blank Meme Template - Arrow Up@pngkey.com"
         ></img>
       </span>{" "}
       {card.upVoteCount}&emsp;

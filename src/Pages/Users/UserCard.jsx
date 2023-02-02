@@ -4,7 +4,7 @@ import UserAvatar from "../../Components/UserAvatar";
 
 export default function UserCard({ userDTO }) {
   const navigate = useNavigate();
-
+console.log(userDTO)
   return (
     <div
       style={{
