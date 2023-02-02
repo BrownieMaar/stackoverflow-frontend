@@ -12,7 +12,12 @@ export default function UserPage() {
   const { id } = useParams();
   const [userPageDTO, setUserPageDTO] = useState(null);
   const [activeOption, setActiveOption] = useState("Questions");
+  const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate();
+
+  const handleRefresh = () => {
+    setRefresh(!refresh);
+  };
 
   function handleOptions(e) {
     e.target.innerText === "Questions"
@@ -28,7 +33,7 @@ export default function UserPage() {
       window.document.title = `User ${data.name} - Stackoverflow++`
     }
     fetchData();
-  }, [id]);
+  }, [id, refresh]);
 
   const signOut = () => {
     window.currentUser = null;
@@ -77,13 +82,10 @@ export default function UserPage() {
       <div className="options">
         {window.currentUser && window.currentUser.id === userPageDTO.id ?
           <>
-            (
           <div className="button clickable warning" onClick={deleteUser}>Delete account</div>
             <div className="button clickable" onClick={signOut}>
             Sign Out
           </div>
-        )
-
           </> :
           (
           <></>
@@ -92,9 +94,9 @@ export default function UserPage() {
       </div>
       <div className="user-option">
         {activeOption === "Questions" ? (
-          <QuestionsOption user={userPageDTO} />
+          <QuestionsOption user={userPageDTO} refresh={handleRefresh} />
         ) : (
-          <AnswersOption user={userPageDTO} />
+          <AnswersOption user={userPageDTO} refresh={handleRefresh} />
         )}
       </div>
     </>

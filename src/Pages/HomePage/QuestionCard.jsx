@@ -6,10 +6,9 @@ import "./Question.css"
 
 export default function QuestionCard({ question, refresh }) {
     const navigate = useNavigate();
-
     return <div className="card clickable">
         <div className="username" onClick={() => navigate("/user/" + question.user.id)}>
-            <UserAvatar username={question.user.name} />
+            <UserAvatar user={question.user} />
             <p>{question.user.name}</p>
         </div>
         <div className="question" onClick={() => navigate("/question/" + question.id)}>
@@ -18,8 +17,8 @@ export default function QuestionCard({ question, refresh }) {
                 <p>
                     <Vote card={question} refresh={refresh}/>
                 </p>
-                <p>Answers: {question.answerCount}</p>
-                <p title={new Date(question.created).toLocaleString()}>{timeDifferenceFormatter(new Date(question.created))}</p>
+                <p>💬 {question.answerCount > 0 ? "Answers: " + question.answerCount : "No answers yet."}</p>
+                <p title={new Date(question.created).toLocaleString()}>🕒 {timeDifferenceFormatter(new Date(question.created))}</p>
             </div>
         </div>
     </div>

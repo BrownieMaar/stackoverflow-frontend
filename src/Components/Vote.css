@@ -1,14 +1,37 @@
-.votes {
-
-}
 
 #upVote-green {
-    background: -webkit-linear-gradient(green, purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+    cursor: pointer;
+    width: 22px;
 }
 
 #downVote-red {
-    color: red;
+    cursor: pointer;
+    width: 22px;
+}
+
+#upVote {
+    cursor: pointer;
+    filter: grayscale(1);
+    width: 22px;
+}
+
+#upVote:hover {
+    filter: grayscale(0.2);
+    transition: 500ms;
+}
+
+#downVote {
+    cursor: pointer;
+    filter: grayscale(1);
+    width: 22px;
+}
+
+#downVote:hover {
+    filter: grayscale(0.2);
+    transition: 500ms;
+}
+
+#eggplant {
+    justify-content: center;
+    width: 22px;
 }
