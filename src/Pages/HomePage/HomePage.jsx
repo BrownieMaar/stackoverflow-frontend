@@ -20,7 +20,6 @@ export default function HomePage() {
           new Date(questionB.created) - new Date(questionA.created)
       );
       setQuestions(data);
-      console.log(data);
     }
     fetchData();
     window.document.title = "Stackoverflow++";

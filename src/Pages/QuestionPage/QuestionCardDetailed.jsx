@@ -27,7 +27,7 @@ export default function QuestionCardDetailed({
         className="username clickable"
         onClick={() => navigate("/user/" + questionPageDTO.user.id)}
       >
-        <UserAvatar username={questionPageDTO.user.name} />
+        <UserAvatar user={questionPageDTO.user} />
         <p>{questionPageDTO.user.name}</p>
       </div>
       <div className="question detailed">

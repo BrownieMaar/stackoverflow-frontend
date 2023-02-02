@@ -11,7 +11,7 @@ export default function QuestionCard({ question, refresh }) {
     return (
     <div className="card clickable"  style={{ backgroundColor: `${question.user.colorhex}`, color: "white" }}>
         <div className="username" onClick={() => navigate("/user/" + question.user.id)}>
-            <UserAvatar user={question.user} />
+            <UserAvatar user = {question.user} />
             <p>{question.user.name}</p>
         </div>
         <div className="question" onClick={() => navigate("/question/" + question.id)}>

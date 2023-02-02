@@ -7,7 +7,7 @@ export default function UserCard({ userDTO }) {
 
     return <div className="usercard" onClick={() => navigate("/user/" + userDTO.id)}>
 
-        <UserAvatar username={userDTO.name} />
+        <UserAvatar user={userDTO} />
 
         <b>{userDTO.name}</b>
 

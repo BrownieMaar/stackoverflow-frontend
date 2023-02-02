@@ -58,7 +58,7 @@ export default function UserPage() {
     <>
       <div className="user-card">
         <div className="user-avatar">
-          <UserAvatar username={userPageDTO.name} isBigSize />
+          <UserAvatar user={userPageDTO} isBigSize />
         </div>
         <div className="user-details">
           <div className="user-name">{userPageDTO.name}</div>
