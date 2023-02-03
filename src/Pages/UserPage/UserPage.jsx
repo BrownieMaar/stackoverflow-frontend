@@ -30,7 +30,7 @@ export default function UserPage() {
       const response = await fetch("/api/user/" + id);
       const data = await response.json();
       setUserPageDTO(data);
-      window.document.title = `User ${data.name} - Stackoverflow++`;
+      window.document.title = `User ${data.name} - Stackoverflow+++`;
     }
     fetchData();
   }, [id, refresh]);

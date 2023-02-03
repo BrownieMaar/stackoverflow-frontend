@@ -10,7 +10,7 @@ export default function SignIn() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.document.title = "Sign in - Stackoverflow++";
+    window.document.title = "Sign in - Stackoverflow+++";
   }, []);
 
   const handleSubmit = async (e) => {
@@ -33,13 +33,13 @@ export default function SignIn() {
       <img
         className="logo-img clickable"
         src={logo}
-        alt="Stackoverflow++ logo"
+        alt="Stackoverflow+++ logo"
         onClick={() => navigate("/")}
       />
       <h2>
         Sign in to
         <br />
-        <i>Stackoverflow++</i>
+        <i>Stackoverflow+++</i>
       </h2>
       <div className="authcard">
         <form>

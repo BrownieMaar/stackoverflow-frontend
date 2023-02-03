@@ -5,7 +5,7 @@ export default function Layout() {
     const navigate = useNavigate();
     return <>
         <header>
-            <div className="logo clickable" onClick={() => navigate("/")}>Stackoverflow++</div>
+            <div className="logo clickable" onClick={() => navigate("/")}>Stackoverflow+++</div>
             <div className="clickable" onClick={() => navigate("/users")}>Users</div>
             {
                 JSON.parse(window.localStorage.getItem("loginInfo")) ?

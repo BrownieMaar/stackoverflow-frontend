@@ -7,7 +7,7 @@ export default function NewQuestion() {
     const navigate = useNavigate();
 
     useEffect( () => {
-        window.document.title = "New Question - Stackoverflow++"
+        window.document.title = "New Question - Stackoverflow+++"
     }, []);
 
     const onSubmit = e => {
