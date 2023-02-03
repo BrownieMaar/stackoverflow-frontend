@@ -12,6 +12,7 @@ export default function QuestionCard({ question, refresh }) {
       className="card clickable"
       style={{
         background: `radial-gradient(ellipse at center, ${question.user.colorhex} 60%, black 195%)`,
+        boxShadow: " 0px 5px 3px #000000",
       }}
     >
       <div

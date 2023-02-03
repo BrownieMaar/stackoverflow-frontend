@@ -3,26 +3,31 @@ import "./Layout.css";
 
 export default function Layout() {
   const navigate = useNavigate();
-
   return (
     <>
       <header>
         <div className="logo clickable" onClick={() => navigate("/")}>
-          Stackoverflow++
+          Stackoverflow+++
         </div>
         <div className="clickable" onClick={() => navigate("/users")}>
           Users
         </div>
-        {window.currentUser ? (
+        {JSON.parse(window.localStorage.getItem("loginInfo")) ? (
           <>
             <div className="clickable" onClick={() => navigate("/new")}>
               New Question
             </div>
             <div
               className="clickable"
-              onClick={() => navigate("/user/" + window.currentUser.id)}
+              onClick={() =>
+                navigate(
+                  "/user/" +
+                    JSON.parse(window.localStorage.getItem("loginInfo")).id
+                )
+              }
             >
-              {window.currentUser.name}'s Profile
+              {JSON.parse(window.localStorage.getItem("loginInfo")).name}'s
+              Profile
             </div>
           </>
         ) : (

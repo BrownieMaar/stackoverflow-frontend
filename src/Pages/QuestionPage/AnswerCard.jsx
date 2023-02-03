@@ -15,6 +15,7 @@ export default function AnswerCard({ answerDTO, deleteAnswer, refresh }) {
         style={{
           background: `radial-gradient(ellipse at center, ${answerDTO.user.colorhex} 50%, black 185%)`,
           color: "white",
+          boxShadow: " 0px 5px 3px #000000",
         }}
         className="card answer"
       >

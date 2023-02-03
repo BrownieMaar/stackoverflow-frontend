@@ -16,7 +16,7 @@ export default function Register() {
   const [pickedColor, setPickedColor] = useState("");
 
   useEffect(() => {
-    window.document.title = "Register - Stackoverflow++";
+    window.document.title = "Register - Stackoverflow+++";
   }, []);
 
   const handleSubmit = async (e) => {
@@ -52,13 +52,13 @@ export default function Register() {
       <img
         className="logo-img clickable"
         src={logo}
-        alt="Stackoverflow++ logo"
+        alt="Stackoverflow+++ logo"
         onClick={() => navigate("/")}
       />
       <h2>
         Register to
         <br />
-        <i>Stackoverflow++</i>
+        <i>Stackoverflow+++</i>
       </h2>
       <div
         style={{

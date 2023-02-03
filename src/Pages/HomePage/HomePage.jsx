@@ -22,7 +22,7 @@ export default function HomePage() {
       setQuestions(data);
     }
     fetchData();
-    window.document.title = "Stackoverflow++";
+    window.document.title = "Stackoverflow+++";
   }, [refresh]);
 
   return (
