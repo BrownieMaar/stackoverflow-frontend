@@ -58,6 +58,7 @@ export default function UserPage() {
       <div
         style={{
           background: `radial-gradient(circle at center, ${userPageDTO.colorHex} 80%, black 195%)`,
+          boxShadow: " 0px 5px 3px #000000",
         }}
         className="user-card"
       >

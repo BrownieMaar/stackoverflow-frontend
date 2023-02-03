@@ -63,6 +63,7 @@ export default function Register() {
       <div
         style={{
           background: `radial-gradient(circle at center, ${pickedColor} 30%, black 185%)`,
+          boxShadow: " 0px 5px 3px #000000",
         }}
         className="authcard"
       >
