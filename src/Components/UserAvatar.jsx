@@ -1,5 +1,10 @@
-import "./avatar.css"
+import "./avatar.css";
 
-export default function UserAvatar({username, isBigSize=false}) {
-    return <div className= {isBigSize ? "letter-avatar-big" : "letter-avatar"}>{username.slice(0, 1)}</div>
+export default function UserAvatar({ user, isBigSize = false }) {
+  return (
+    <div className={isBigSize ? "letter-avatar-big" : "letter-avatar"}>
+      {user.name.slice(0, 1)}
+      {user.isAdmin ? <span id="isAdmin">👮</span> : <></>}
+    </div>
+  );
 }

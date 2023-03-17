@@ -1,19 +1,19 @@
 export const isUserSignedIn = () => {
-    return !!window.currentUser
+    return !!JSON.parse(window.localStorage.getItem("loginInfo"))
 }
 
 export const getSignedInUserObject = () => {
-    return window.currentUser
+    return JSON.parse(window.localStorage.getItem("loginInfo"))
 }
 
 export const setSignedInUser = userDTO => {
-    window.currentUser = userDTO;
+    window.localStorage.setItem("loginInfo", JSON.stringify(userDTO));
 }
 
 export const signUserOut = () => {
-    window.currentUser = null;
+    window.localStorage.setItem("loginInfo", null);
 }
 
 export const isSignedInUserAdmin = () => {
-    return window?.currentUser?.isAdmin === true;
+    return JSON.parse(window.localStorage.getItem("loginInfo")).isAdmin === true;
 }

@@ -3,14 +3,22 @@ import QARatio from "../../Components/QARatio";
 import UserAvatar from "../../Components/UserAvatar";
 
 export default function UserCard({ userDTO }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  console.log(userDTO);
+  return (
+    <div
+      style={{
+        background: `radial-gradient(ellipse at center, ${userDTO.colorHex} 70%, black 185%)`,
+        boxShadow: " 0px 5px 3px #000000",
+      }}
+      className="usercard"
+      onClick={() => navigate("/user/" + userDTO.id)}
+    >
+      <UserAvatar user={userDTO} />
 
-    return <div className="usercard" onClick={() => navigate("/user/" + userDTO.id)}>
+      <b>{userDTO.name}</b>
 
-        <UserAvatar username={userDTO.name} />
-
-        <b>{userDTO.name}</b>
-
-        <QARatio user={userDTO} />
+      <QARatio user={userDTO} />
     </div>
+  );
 }

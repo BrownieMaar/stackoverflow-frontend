@@ -13,7 +13,7 @@ import Users from './Pages/Users/Users'
 function App() {
 
   useEffect(() => {
-    if (!window.currentUser) window.currentUser = null;
+    if (!JSON.parse(window.localStorage.getItem("loginInfo"))) window.localStorage.setItem("loginInfo", null);
   }, []);
 
 

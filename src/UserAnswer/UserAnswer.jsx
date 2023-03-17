@@ -22,7 +22,13 @@ export default function UserAnswer({ answerDTO, deleteAnswer, user }) {
   return answerDTO && userQuestion ? (
     <>
       <div className="answer-card">
-        <div className="user-profile">
+        <div
+          style={{
+            background: `linear-gradient(to right, ${answerDTO.user.colorHex}30%, black 185%)`,
+            color: "white",
+          }}
+          className="user-profile"
+        >
           <div
             className="username clickable"
             onClick={() => navigate("/user/" + userQuestion.user.id)}

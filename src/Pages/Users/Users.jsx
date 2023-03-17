@@ -6,7 +6,7 @@ import "./UserCards.css"
 export default function Users() {
     const [userDTOs, setUserDTOs] = useState(null);
     useEffect( () => {
-        window.document.title = "Users - Stackoverflow++"
+        window.document.title = "Users - Stackoverflow+++"
     }, []);
 
     useEffect(() => {
